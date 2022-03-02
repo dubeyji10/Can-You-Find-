@@ -44,7 +44,7 @@ function guessGenerator(){
         console.log("random index after function : "+randomIndex);
         console.log("find "+listName[randomIndex]);
         guess.textContent = "find where is "+listName[randomIndex]+" ?";
-        guess.style.backgroundColor = "grey";
+        guess.style.backgroundColor = "#d1d1d1";
         return;
     }
 }

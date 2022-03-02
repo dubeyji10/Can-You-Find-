@@ -31,7 +31,8 @@ function guessGenerator(){
     randomIndex = Math.floor(Math.random() * listName.length);
     // const tempRIndex = (element) => element === randomIndex;
     // console.log("const temp r index : "+tempRIndex);
-    if(rIndexList.findIndex((element)=>element==randomIndex)>0){
+    // very small -- Lakshadweep, dadar nagar haveli -- difficult to click -- so ignore ?
+    if(randomIndex===18 || randomIndex===18 || rIndexList.findIndex((element)=>element==randomIndex)>0){
         console.log("already found");
         guessGenerator();
 
@@ -44,6 +45,7 @@ function guessGenerator(){
         console.log("find "+listName[randomIndex]);
         guess.textContent = "find where is "+listName[randomIndex]+" ?";
         guess.style.backgroundColor = "grey";
+        return;
     }
 }
 
@@ -51,8 +53,12 @@ console.log(guess.textContent);
 
 guess.addEventListener("click", guessGenerator(),false);
 
-
+let d = document.getElementById('dialog');
+let pop = document.getElementById('popup1');
 // console.log(aTags);
+
+    var popup = document.getElementById("popup");
+
 for (let i = 0; i < aTags.length; i++) {
      aTags[i].addEventListener("click", function() {
         console.log("you clicked on "+listName[i]);
@@ -62,15 +68,21 @@ for (let i = 0; i < aTags.length; i++) {
         
         dictForStoringClickonSate[clickedID] = 1;
         console.log("dict item set to 1 ");
-        for(let id in dictForStoringClickonSate){
-            console.log(id + "->"+dictForStoringClickonSate[id]);
-        }
+        
+        // for(let id in dictForStoringClickonSate){
+        //     console.log(id + "->"+dictForStoringClickonSate[id]);
+        // }
+        
         console.log("title :" + aTags[i].firstElementChild.getAttribute('title'));
         if(i===randomIndex){
             console.log("YAY!!! you found "+listName[i]);
+            console.log("href for it -> "+aTags[i].getAttribute('href'));
+            // aTags[i].getAttribute('href') = "#popup2";
+
             aTags[i].style.fill = "#57cd7e";
             guess.style.backgroundColor = "#57cd7e";
             setTimeout(() => {
+                // popup.classList.toggle("show");
                 alert(`YAY!!! you found ${listName[i]}`);
                 guessGenerator();
                 console.log("guess generator called again");

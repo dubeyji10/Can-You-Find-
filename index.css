@@ -1,0 +1,45 @@
+.body{
+    background-color: rgb(20, 19, 17);
+    color: rgb(243, 213, 213);
+    font-size: 1.5em;
+}
+#gameWindow{
+    width: auto;
+    /* height: max-content; */
+    justify-content: center;
+    display: grid;
+    grid-gap : 10px;
+    background-color: snow;
+    color: black;
+}
+
+#gameWindow svg{
+    border: 1px salmon solid;
+    fill: #111114;
+    stroke: rgb(247, 237, 237);
+}
+
+#gameWindow svg:hover{
+    fill: #6b9789;
+    stroke: black;
+}
+
+#gameWindow svg a{
+    border: 1px salmon solid;
+    fill: #fdfdfd;
+    stroke: rgb(7, 6, 6);
+}
+
+#gameWindow svg a:hover{
+    fill: #d37575;
+    stroke: rgb(15, 13, 13);
+}
+
+#guessID{
+    font-size: 2em;
+    color: #141111;
+    background-color: beige;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 10px;
+}

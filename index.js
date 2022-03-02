@@ -60,6 +60,8 @@ let pop = document.getElementById('popup1');
     var popup = document.getElementById("popup");
 
 for (let i = 0; i < aTags.length; i++) {
+    aTags[i].style.cursor = "pointer";
+
      aTags[i].addEventListener("click", function() {
         console.log("you clicked on "+listName[i]);
         console.log("state details ");
@@ -78,7 +80,6 @@ for (let i = 0; i < aTags.length; i++) {
             console.log("YAY!!! you found "+listName[i]);
             console.log("href for it -> "+aTags[i].getAttribute('href'));
             // aTags[i].getAttribute('href') = "#popup2";
-
             aTags[i].style.fill = "#57cd7e";
             guess.style.backgroundColor = "#57cd7e";
             setTimeout(() => {

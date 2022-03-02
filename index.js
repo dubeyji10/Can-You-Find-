@@ -32,7 +32,7 @@ function guessGenerator(){
     // const tempRIndex = (element) => element === randomIndex;
     // console.log("const temp r index : "+tempRIndex);
     // very small -- Lakshadweep, dadar nagar haveli -- difficult to click -- so ignore ?
-    if(randomIndex===18 || randomIndex===18 || rIndexList.findIndex((element)=>element==randomIndex)>0){
+    if(randomIndex===18 || randomIndex===27 || rIndexList.findIndex((element)=>element==randomIndex)>0){
         console.log("already found");
         guessGenerator();
 

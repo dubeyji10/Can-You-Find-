@@ -1,25 +1,65 @@
-.body{
-    background-color: rgb(20, 19, 17);
-    color: rgb(243, 213, 213);
-    font-size: 1.5em;
+@media (min-width:700px){
+    body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) ;
+        background-color: #fbfffd;
+    }
+
 }
+
+body{
+    /* background-color: rgb(138, 138, 138); */
+    color: rgb(0, 0, 0);
+    /* max width according to the map ---- 700px width */
+    /* max-width: 800px;
+    position:relative; */
+    /* transform: translate(50%, 0%); */
+    position: absolute;
+    /* top: 50%; */
+    /* left: 50%; */
+    /* margin-right: -50%; */
+    /* transform: translate(-50%, -50%)  */
+    /*  */
+    
+    /* font-size: 1.5em; */
+}
+
+.wrapper{
+    /* background-color: #333; */
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    
+    /* width: 8em */
+}
+
 #gameWindow{
-    width: auto;
+    /* width: auto; */
+    width: fit-content;
     /* height: max-content; */
-    justify-content: center;
+    /* justify-content: center; */
     display: grid;
+    grid-template-rows: 10% 70% ;
     grid-gap : 10px;
-    background-color: snow;
+    background-color: #fbfffd;
     color: black;
 }
 
+
 #gameWindow svg{
+    transform: 0.75;
+    margin-top: 10px;
+    padding: 1vh 1vh 1vh 1vh;
     border: 1px salmon solid;
     fill: #111114;
     stroke: rgb(247, 237, 237);
 }
-
+/* removed viewbox -- - - - --- */
 #gameWindow svg:hover{
+
     fill: #6b9789;
     stroke: black;
 }
@@ -36,12 +76,20 @@
 }
 
 #guessID{
-    font-size: 2em;
+    /* align-items: center; */
+    width: max-content;
+    justify-self: center;
+    align-self: center;
+    /* text-align: center; */
+    /* padding-top: 20px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1.4em;
     color: #141111;
     background-color: #d1d1d1;
-    text-align: center;
+    /* text-align: center; */
     border-radius: 12px;
-    margin-top: 10px;
+
 }
 
 #dialog{
@@ -50,6 +98,7 @@
     height: auto;
     
 }
+
 
 /* popup div */
 

@@ -121,7 +121,8 @@ function guessGenerator(){
 
             let score = (correctAnswers / (listName.length) * 100)+"%";
             console.log("\n\n you score :"+score+"\n\n-------");
-            guess.textContent = `Game Over!\nThank You for Playing\r\nYour Score ${score.slice(0,5)}`;
+            guess.textContent = `Game Over!\nThank You for Playing\r\nYour Score is ${score.slice(0,5)}%`;
+            guess.textContent += ` you gave ${correctAnswers} correct answers out of ${listName.length}`;
             guess.style.backgroundColor = "#ff9f9f";    
 
         }

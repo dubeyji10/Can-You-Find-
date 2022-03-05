@@ -1,119 +1,103 @@
+/*  v4 size isse for small screen still remains */
 
-
-@media (min-width:800px){
- 
-  .wrapper #gameWindow svg{
-  height: 500px;
-  width: 400px;
-
-}
-
-  .wrapper svg a:hover{
-  fill: rgb(141, 224, 224);
-  }
-  
-  .wrapper #gameWindow #guessID{
-    margin-left: 15%;
-  }
-
-}
-@media (max-width:400px){
-  body {
-      max-width: 400px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-right: -50%;
-      transform: translate(-50%, -50%) ;
-      /* background-color: #d7affc; */
-      background-color: beige
-      /* #fdbf9a */
-  }
-
-  .wrapper{
-    margin-right: 5px;
-    display: grid;
-    grid-gap:50px;
-    background-color:beige;
-  }
-
-  .wrapper #gameWindow svg{
-    height: 510px;
-    width: 420px;
-  }
-  #guessID{
-    padding-right: 20px;
-    margin-right: 5px;
-    padding-left: 5px;
-    padding-bottom: 40px;
-    max-width: 390px;
-    text-align: center;
-    font-size: large;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-  }
-
-  svg{
-    background-color: rgb(253, 255, 231);
-    fill: beige;
-    stroke: black;
-  }
-
-  svg a:hover{
-    fill: rgb(35, 46, 46);
-  }
-
-}
-
-body {
-  max-width: 590px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%) ;
-  /* background-color: #d7affc; */
-  background-color: beige
-  /* #fdbf9a */
+body{
+  /* max-height: 1600px; */
+  margin: auto auto;
+  /* width: 50%; */
+  background-color: wheat;
+  max-width: max-content;
+  max-height: max-content;
 }
 
 .wrapper{
-  
-margin-right: 5px;
-display: grid;
-grid-gap:50px;
-/* background-color:rgb(245, 245, 170); */
-}
-.wrapper svg a{
-  fill: bisque;  
+  margin-top: 40px;
+  /* width: 50%; */
+  /* margin-top: 50%; */
+  background-color: wheat;
+  /* background-color: antiquewhite; */
+  /* display: grid; */
+  display: inline-block;
+  grid-template-rows:  10% 50%;
+
 }
 
-  .wrapper #guessID{
-    /* margin-left: 10%; */
+.wrapper #gameWindow svg a{
 
-  padding-top: 15px;
-  padding-bottom: 25px;
-  padding-left: 5px;
+  fill:inherit;
+  /* fill: rgb(244, 255, 183); */
+  /* fill: rgb(183, 255, 213); */
+  stroke: black;
+
+}
+
+#MapOfIndia{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: wheat;
+  fill: blanchedalmond;
+  stroke: white;
+}
+
+.wrapper:first-child{
+  padding-left: 20px;
+  padding-top: 20px;
   padding-right: 20px;
-  max-width: 500px;
+  padding-bottom: 20px;
   text-align: center;
-  font-size: large;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border-radius: 10px;
-  }
+  max-width: 600px;
 
+
+}
+.wrapper:nth-child(1){
+  /* background-color: rgb(254, 255, 179); */
+  background-color: wheat;
+}
+
+.wrapper div:nth-child(2){
+ 
+  background-color: wheat;
+  /* background-color: rgb(179, 245, 179); */
+}
 svg{
-fill: beige;
-stroke: black;
+  height: 500px;
+  width: 500px;
+  /* fill: aliceblue; */
 }
 
-svg a:hover{
-  fill: aqua;
-  
+
+svg path:hover{
+  fill: rgb(255, 146, 74);
 }
+
+
+#gameWindow #guessID{
+  
+  max-width: 500px;
+  background-color: antiquewhite;
+  font-size: 1em;
+  padding-bottom: 10px;
+  height: 30px;
+  /* margin: 0 auto; */
+  padding-top: 10%;
+  padding-bottom: 10%;
+  border-radius: 20px;
+}
+
 .score{
-  width: 90px;
-  height: 80px;
-  border-radius: 10%;
-  background-color: aliceblue;
+  text-align: center;
+  justify-items: center;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  align-tracks: center;
+  /* display: flex; */
+  display: inline-block;
+  line-height: 60px;
+  height: 65px;
+  width: 65px;
+  background-color: rgb(250, 240, 108);
+  border-radius: 100%;
+
 }

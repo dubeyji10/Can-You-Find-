@@ -3,8 +3,8 @@
 @media (min-width:800px){
  
   .wrapper #gameWindow svg{
-  height: 580px;
-  width: 500px;
+  height: 500px;
+  width: 400px;
 
 }
 
@@ -38,8 +38,8 @@
   }
 
   .wrapper #gameWindow svg{
-    height: 500px;
-    width: 390px;
+    height: 510px;
+    width: 420px;
   }
   #guessID{
     padding-right: 20px;

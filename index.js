@@ -81,7 +81,7 @@ let shuffledList2 = []
 // a loop and condition is needed
 
 let i=0;
-while(shuffledList2.length!==10){
+while(shuffledList2.length!==20){
     let item = shuffledList[i];
     if(item===5 || item ===7 || item ===9 || item===18 || item===27){
         console.log("skipped : "+item);
@@ -132,7 +132,7 @@ function guessGenerator(){
         let gMessage = document.getElementById('gameMessage');
         // let score = (correctAnswers / (listName.length) * 100)+"";
         // 10 random questions
-        let score = (correctAnswers / 10) * 100 + "";
+        let score = (correctAnswers / 20) * 100 + "";
         // guess.style.paddingTop = "0px";
         // guess.style.paddingBottom = "200px";
         console.log("\n\n you score :"+score+"\n\n-------");
@@ -140,7 +140,7 @@ function guessGenerator(){
         guess.innerHTML +="<br>Thank You for Playing. ";
         // guess.innerHTML+= `<br> Your Score is <span class="score">${score.slice(0,5)} %</span>`;
         // guess.innerHTML += `<br> You gave ${correctAnswers} correct answers out of ${listName.length}`;
-        guess.innerHTML += `<br> You gave ${correctAnswers} correct answers out of 10`;
+        guess.innerHTML += `<br> You gave ${correctAnswers} correct answers out of 20`;
         guess.style.backgroundColor = "wheat";    
         // guess.style.paddingBottom = "300px";
         console.log("---------------------------------------");
@@ -148,10 +148,10 @@ function guessGenerator(){
         console.log("---------------------------------------");
         // color of score
         gMessage.innerHTML = `<div>Your Score is <span class="score">${score.slice(0,5)} %</span> </div>You gave ${correctAnswers} correct answers out of 10.`;
-        if(correctAnswers>=7){
+        if(correctAnswers>=15){
             document.getElementsByTagName('span')[1].style.backgroundColor = '#aeff71';
         }
-        else if(correctAnswers<7 && correctAnswers>=4){
+        else if(correctAnswers<15 && correctAnswers>=10){
             document.getElementsByTagName('span')[1].style.backgroundColor = '#fffa6c';
         }
         else{

@@ -147,7 +147,7 @@ function guessGenerator(){
         console.log(guess.textContent);
         console.log("---------------------------------------");
         // color of score
-        gMessage.innerHTML = `<div>Your Score is <span class="score">${score.slice(0,5)} %</span> </div>You gave ${correctAnswers} correct answers out of 10.`;
+        gMessage.innerHTML = `<div>Your Score is <span class="score">${score.slice(0,5)} %</span> </div>You gave ${correctAnswers} correct answers out of 20.`;
         if(correctAnswers>=15){
             document.getElementsByTagName('span')[1].style.backgroundColor = '#aeff71';
         }

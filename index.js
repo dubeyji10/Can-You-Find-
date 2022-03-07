@@ -1,5 +1,11 @@
 console.log("ready");
 
+
+let b = document.getElementById("Togglebutton");
+
+let visibilityList = ["visible","hidden"];
+let t = 0;
+let totalQattempt = 0;
 let dictForStoringClickonSate = {};
 // keep track of states click of id matches with guess return green or 
 // use a stack if id matches store else pop -- correct if stack is not empty
@@ -8,7 +14,7 @@ let correctAnswers = 0;
 let triviaQuestions = [
 
     'The old 20 rupee depcits a motif from this place',
-    'The designer of the Indian National Flag was hails from here',
+    'The designer of the Indian National Flag hails from here',
     'Padma Shri Mamang Dai is from here',
     '(this one is easy)\n This is the Tea Capital of the world',
     'The birth place of Guru Gobind Singh',
@@ -23,7 +29,7 @@ let triviaQuestions = [
     'On 21 April 1526,a battle was fought between the invading forces of Babur and the Lodi dynasty',
     'A city here was renamed after the Father of Indian Industry (old name Sakchi)',
     '(an easy one) Largest producer of saffron in India ',
-    'Producer of the election ink that is used for the elections in the country',
+    'Producer of the ink that is used for the elections in the country',
     'This comes up if you search - Best place in India to die',
     'A collection of lakh islands',
     'State of one third of the “Lal Bal Pal” triumvirate and also gave the slogan "Swaraj is my birth right and I shall have it"',
@@ -69,6 +75,28 @@ function shuffleArray(Arr){
 
 
 shuffleArray(shuffledList);
+let shuffledList2 = []
+
+// not using slice because we need to skip some element and it is randomly shuffled
+// a loop and condition is needed
+
+let i=0;
+while(shuffledList2.length!==10){
+    let item = shuffledList[i];
+    if(item===5 || item ===7 || item ===9 || item===18 || item===27){
+        console.log("skipped : "+item);
+    }
+    else{
+        shuffledList2.push(item);
+
+    }
+    i+=1;
+}
+
+
+
+console.log("\n\n\nquestions choosen -> "+shuffledList2+"\n\n\n");
+console.log("length :"+shuffledList2.length)
 
 // better game -  rIndexList have values from 1 to 36
 //randomly select and find it and pop it if cliked right state
@@ -95,47 +123,73 @@ console.log(" 0 -->"+dictForStoringClickonSate[0]);
 // let dictForStoringClickonSateJSON= JSON.stringify(dictForStoringClickonSate);
 // {"lang":"en"})
 
-function guessGenerator(){
-    randomIndex = shuffledList.pop();
-    console.log(" ---->> first Item in shuffled array : "+randomIndex);
 
-    // randomIndex = Math.floor(Math.random() * listName.length);
-    // const tempRIndex = (element) => element === randomIndex;
-    // console.log("const temp r index : "+tempRIndex);
-    // very small -- Lakshadweep, dadar nagar haveli -- difficult to click -- so ignore ?
-    if(randomIndex===5 || randomIndex===18 || randomIndex===27 || randomIndex ===7 || randomIndex ===9){
-        console.log("->->->-> difficult to click on map so ignoring Sorry !"+randomIndex+"->"+listName[randomIndex]);
-        guessGenerator();
+// let tweetURL = "";
+
+function guessGenerator(){
+    if(shuffledList2.length===0){
+        let tweetText = document.getElementById('tweetButton');
+        let gMessage = document.getElementById('gameMessage');
+        // let score = (correctAnswers / (listName.length) * 100)+"";
+        // 10 random questions
+        let score = (correctAnswers / 10) * 100 + "";
+        // guess.style.paddingTop = "0px";
+        // guess.style.paddingBottom = "200px";
+        console.log("\n\n you score :"+score+"\n\n-------");
+        guess.innerHTML = "<br>Game Over! ";
+        guess.innerHTML +="<br>Thank You for Playing. ";
+        // guess.innerHTML+= `<br> Your Score is <span class="score">${score.slice(0,5)} %</span>`;
+        // guess.innerHTML += `<br> You gave ${correctAnswers} correct answers out of ${listName.length}`;
+        guess.innerHTML += `<br> You gave ${correctAnswers} correct answers out of 10`;
+        guess.style.backgroundColor = "wheat";    
+        // guess.style.paddingBottom = "300px";
+        console.log("---------------------------------------");
+        console.log(guess.textContent);
+        console.log("---------------------------------------");
+        // color of score
+        gMessage.innerHTML = `<div>Your Score is <span class="score">${score.slice(0,5)} %</span> </div>You gave ${correctAnswers} correct answers out of 10.`;
+        if(correctAnswers>=7){
+            document.getElementsByTagName('span')[1].style.backgroundColor = '#aeff71';
+        }
+        else if(correctAnswers<7 && correctAnswers>=4){
+            document.getElementsByTagName('span')[1].style.backgroundColor = '#fffa6c';
+        }
+        else{
+            document.getElementsByTagName('span')[1].style.backgroundColor = '#ff6565';
+        }
+        // gMessage.textContent += `\n\nYou gave ${correctAnswers} correct answers out of 10`;
+        // tweetText.getAttribute('href') += `and beat my score of ${score.slice(0,5)} %`;
+        // tweetText.getAttribute('href') +=".";
+        document.getElementById("shareButton").click();
 
     }
     else{
-        rIndexList.push(randomIndex);
+        totalQattempt+=1;
+        randomIndex = shuffledList2.pop();
+        console.log(" ---->> first Item in shuffled array2 : "+randomIndex);
+
+        // randomIndex = Math.floor(Math.random() * listName.length);
+        // const tempRIndex = (element) => element === randomIndex;
+        // console.log("const temp r index : "+tempRIndex);
+        // very small -- Lakshadweep, dadar nagar haveli -- difficult to click -- so ignore ?
+        // rIndexList.push(randomIndex);
         // console.log("ok find it");
         // console.log(rIndexList);
-        console.log("\n\n---total plays left : "+shuffledList.length+"---\n\n")
-        console.log("random index after function : "+randomIndex);
+        console.log("\n\n---total plays left : "+shuffledList2.length+"---\n\n")
+        // console.log("random index after function : "+randomIndex);
         console.log("-----find "+listName[randomIndex]+"--------");
         console.log("-----question : "+dictForStoringClickonSate[randomIndex]+"--------");
         // guess.textContent = "find where is "+listName[randomIndex]+" ?";
-        if(shuffledList.length===0){
-
-            let score = (correctAnswers / (listName.length) * 100)+"%";
-            console.log("\n\n you score :"+score+"\n\n-------");
-            guess.textContent = `Game Over!\nThank You for Playing\r\nYour Score is ${score.slice(0,5)}%`;
-            guess.textContent += ` you gave ${correctAnswers} correct answers out of ${listName.length}`;
-            guess.style.backgroundColor = "#ff9f9f";    
-
-        }
-        else{
-            guess.textContent = dictForStoringClickonSate[randomIndex];
+            guess.textContent = totalQattempt+". "+dictForStoringClickonSate[randomIndex];
             // triviaQuestions
-            guess.style.backgroundColor = "#d1d1d1";    
+            guess.style.backgroundColor = "snow";    
+
+               
         }
         return;
-    }
 }
 
-console.log(guess.textContent);
+// console.log(guess.textContent);
 
 guess.addEventListener("click", guessGenerator(),false);
 
@@ -171,7 +225,8 @@ for (let i = 0; i < aTags.length; i++) {
             guess.style.backgroundColor = "#57cd7e";
             setTimeout(() => {
                 // popup.classList.toggle("show");
-                alert(`YAY!!! you found ${listName[i]}`);
+                console.log(`YAY!!! you found ${listName[i]}`);
+                // alert(`YAY!!! you found ${listName[i]}`);
                 guessGenerator();
                 console.log("guess generator called again");
             }, 200);
@@ -189,3 +244,17 @@ for (let i = 0; i < aTags.length; i++) {
     });
 }
 
+
+// or use display -- none ... block
+function ToggleBox(){
+    console.log("it works");
+    var popup = document.getElementById("message");
+    // popup.classList.toggle("show");
+    console.log("t : "+t);
+    console.log(visibilityList[t%2]);
+    popup.style.visibility = visibilityList[t%2];
+    t+=1;
+
+}
+
+// b.addEventListener('click',ToggleBox);
